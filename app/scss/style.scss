@@ -1,0 +1,1154 @@
+@import "vars"; /* Переменные из SCSS*/
+@import "fonts"; /* Шрифты */
+@import "reset"; /* Обнуление CSS*/
+@import "global"; /* Глобальные стили*/
+
+/* Ниже пишется основа*/
+
+/*----------------Header------------------------------------------------------------*/
+.header {
+  background-image: url("../images/header-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  &__top {
+    padding-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 168px;
+    @media (max-width: 1344px) {
+      margin-bottom: 138px;
+      padding-top: 30px;
+    }
+    @media (max-width: 991.98px) {
+      margin-bottom: 108px;
+      padding-top: 20px;
+    }
+    @media (max-width: 767.98px) {
+      margin-bottom: 78px;
+      padding-top: 15px;
+      justify-content: flex-end;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    position: relative;
+    @media (max-width: 767.98px) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: block;
+      background-color: rgb(20, 20, 20, 0.95);
+      transform: translateY(-100%);
+      transition: transform 0.5s;
+    }
+  }
+  &__nav--active {
+    transform: translateY(0);
+  }
+  &__list + &__list {
+    margin-left: 40px;
+    @media (max-width: 1344px) {
+      margin-left: 30px;
+    }
+    @media (max-width: 767.98px) {
+      margin-left: 0;
+    }
+  }
+  &__list {
+    @media (max-width: 767.98px) {
+      margin: 10px;
+    }
+  }
+  &__list:first-of-type {
+  }
+  &__link {
+    font-family: "ReformaGroteskMediumC";
+    font-style: normal;
+    font-weight: 500;
+    font-size: calc(1.6em + 0.833333vw); // font-size: 32px;
+    line-height: 120%;
+    letter-spacing: 0.03em;
+    color: #ffffff;
+    transition: all 0.3s;
+    @media (max-width: 767.98px) {
+      display: block;
+      margin: 0 auto;
+      text-align: center;
+      padding: 20px;
+    }
+  }
+
+  &__link:hover {
+    color: #db3138;
+  }
+
+  &__hidmenu {
+    z-index: 2;
+    @media (max-width: 767.98px) {
+      margin-right: 10px;
+    }
+  }
+
+  &__hidmenu-line {
+    transition: all 0.5s;
+  }
+
+  &__hidmenu:hover &__hidmenu-line {
+    transform: translateX(10px);
+  }
+
+  &__main {
+    text-align: center;
+  }
+
+  &__title {
+    font-family: "ReformaGroteskBoldC";
+    font-style: normal;
+    font-weight: 700;
+    font-size: calc(7.5em + 3.9065vw); // font-size: 150px;
+    line-height: 125%;
+    color: #db3138;
+  }
+
+  &__text {
+    font-family: "ReformaGroteskMediumC";
+    font-style: normal;
+    font-weight: 500;
+    font-size: calc(2em + 1.042vw); // font-size: 40px;
+    line-height: 120%;
+    color: #ffffff;
+    margin: 1em 0;
+  }
+
+  &__btn {
+    font-family: "ReformaGroteskDemiC";
+    font-style: normal;
+    font-weight: 600;
+    font-size: calc(1.2em + 0.625vw); // font-size: 24px;
+    line-height: 140%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 103px;
+    padding: 0.625em 1.04166667em; //padding: 15px 25px;
+
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+  }
+
+  &__btn::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #db3138;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition-property: transform;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+  }
+
+  &__btn:hover::before {
+    transform: scaleX(1);
+  }
+
+  &__info {
+    display: flex;
+  }
+
+  &__address {
+    border: 1px solid #898989;
+    flex: 1 1 640px;
+    text-align: center;
+  }
+
+  &__info-title {
+    font-family: "ReformaGroteskDemiC";
+    font-style: normal;
+    font-weight: 600;
+    font-size: calc(0.9em + 0.46875vw); // font-size: 18px;
+    line-height: 140%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #ffffff;
+    padding-top: 2.77777778em;
+    padding-bottom: 1.11111111em;
+  }
+
+  &__info-text {
+    font-family: "ReformaGroteskDemiC";
+    font-style: normal;
+    font-weight: 600;
+    font-size: calc(1.2em + 0.625vw); // font-size: 24px;
+    line-height: 140%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #db3138;
+    padding-bottom: 1.79166667em;
+  }
+
+  &__tel {
+    border: 1px solid #898989;
+    flex: 1 1 640px;
+    text-align: center;
+    margin-left: -1px;
+  }
+
+  &__tel-link {
+    color: #db3138;
+    display: block;
+  }
+
+  &__tel-link + &__tel-link {
+    padding-top: 0.625em;
+  }
+
+  &__time-work {
+    border: 1px solid #898989;
+    flex: 1 1 640px;
+    text-align: center;
+    margin-left: -1px;
+  }
+
+  &__time-text + &__time-text {
+    padding-top: 0.625em;
+  }
+}
+
+/*----------------Блок достижения------------------------------------------------------------*/
+.achievements {
+  &__inner {
+    display: flex;
+    padding: 180px 0;
+    flex-flow: wrap;
+    @media (max-width: 1344px) {
+      padding: 140px 0;
+    }
+    @media (max-width: 991.98px) {
+      padding: 100px 0;
+    }
+    @media (max-width: 767.98px) {
+      padding: 60px 0;
+    }
+  }
+  &__info {
+    flex: 1 1 324px;
+    @media (max-width: 767.98px) {
+      padding-right: 10px;
+    }
+  }
+
+  &__title {
+    font-family: "ReformaGroteskDemiC";
+    font-style: normal;
+    font-weight: 600;
+    font-size: calc(2.6em + 1.3541667vw); //font-size: 52px; ;
+    line-height: 140%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #ffffff;
+    padding-bottom: 0.76923077em;
+  }
+
+  &__squares {
+    justify-content: flex-start;
+  }
+
+  &__text {
+    font-family: "ReformaGroteskMediumC";
+    font-style: normal;
+    font-weight: 500;
+    font-size: calc(1.8em + 0.3125vw); // font-size: 24px;
+    line-height: 120%;
+    letter-spacing: 0.03em;
+    color: #ffffff;
+    padding-top: 2.5em;
+    padding-bottom: 2em;
+  }
+
+  &__blocks {
+    display: flex;
+    flex: 1 1 324px;
+    padding-left: 24px;
+    @media (max-width: 767.98px) {
+      padding-left: 0;
+    }
+  }
+
+  &__block {
+    flex: 1 1 318px;
+  }
+
+  &__block + &__block {
+    padding-top: 40px;
+    margin-left: -1px;
+  }
+
+  &__item {
+    border: 1px solid #898989;
+  }
+
+  &__item-num {
+    font-family: "ReformaGroteskDemiC";
+    font-style: normal;
+    font-weight: 600;
+    font-size: calc(2.6em + 1.355vw); // font-size: 52px;
+    line-height: 140%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #db3138;
+    text-align: center;
+    padding-top: 0.46296296em;
+  }
+
+  &__item-text {
+    font-family: "ReformaGroteskDemiC";
+    font-style: normal;
+    font-weight: 600;
+    font-size: calc(1.2em + 0.2083333vw); // font-size: 16px;
+    line-height: 140%;
+    text-align: center;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #ffffff;
+    padding-bottom: 2.125em;
+  }
+
+  &__item-img {
+    margin: 0 auto;
+    padding: 25px 0;
+  }
+}
+
+span:not(.question__address-img) {
+  font-size: calc(1.2rem + 0.625vw); // font-size: 24px;
+}
+/*----------------Слайдер------------------------------------------------------------*/
+.slider {
+  &__slider {
+    margin-bottom: 180px;
+    width: 100%;
+    z-index: 9999;
+    @media (max-width: 1344px) {
+      margin-bottom: 140px;
+    }
+    @media (max-width: 991.98px) {
+      margin-bottom: 100px;
+    }
+    @media (max-width: 767.98px) {
+      margin-bottom: 60px;
+    }
+  }
+  &__slick-prev,
+  &__slick-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    @media (max-width: 1344px) {
+    }
+    @media (max-width: 991.98px) {
+    }
+  }
+
+  &__slick-prev {
+    left: -130px;
+    @media (max-width: 1344px) {
+      left: -70px;
+    }
+    @media (max-width: 991.98px) {
+      left: 50px;
+    }
+    @media (max-width: 767.98px) {
+      left: 0;
+    }
+  }
+
+  &__slick-next {
+    right: -130px;
+    @media (max-width: 1344px) {
+      right: -70px;
+    }
+    @media (max-width: 991.98px) {
+      right: 50px;
+    }
+    @media (max-width: 767.98px) {
+      right: 0;
+      z-index: 0;
+    }
+  }
+
+  &__item {
+    margin: 0 12px;
+    width: 32.09876543209877%;
+  }
+
+  &__img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    margin: 0 auto;
+  }
+
+  &__svg {
+    margin: -35px auto 0;
+  }
+
+  &__text {
+    font-family: "ReformaGroteskDemiC";
+    font-style: normal;
+    font-weight: 600;
+    font-size: calc(0.9em + 0.46875vw); // font-size: 18px;
+    line-height: 140%;
+    text-align: center;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #ffffff;
+    padding: 0 35px;
+    text-align: center;
+    margin-top: -35px;
+    @media (max-width: 991.98px) {
+      width: 70%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @media (max-width: 767.98px) {
+      width: 80%;
+      max-width: 366px;
+    }
+  }
+}
+
+.slick-arrow {
+  background-color: #141414;
+}
+/*----------------Блок инфо------------------------------------------------------------*/
+.blockinfo {
+  &__inner {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 180px;
+    @media (max-width: 1344px) {
+      margin-bottom: 140px;
+    }
+    @media (max-width: 991.98px) {
+      margin-bottom: 100px;
+      flex-flow: column wrap;
+      align-items: center;
+    }
+    @media (max-width: 767.98px) {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__texts {
+    flex: 1;
+  }
+
+  &__title {
+    font-family: "ReformaGroteskDemiC";
+    font-style: normal;
+    font-weight: 600;
+    font-size: calc(1.6em + 0.833333vw); // font-size: 32px;
+    line-height: 140%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #ffffff;
+    padding-bottom: 43px;
+    position: relative;
+    padding-left: 92px;
+  }
+  &__title:nth-of-type(2) {
+    margin-top: 1.25em;
+  }
+  &__title:nth-of-type(3) {
+    margin-top: 1.25em;
+  }
+ 
+
+  &__title::before {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 50px;
+  }
+  &__title--mat {
+    background-image: url("../images/blockinfo-1.svg");
+    background-repeat: no-repeat;
+  }
+  &__title--mast {
+    background-image: url("../images/blockinfo-2.svg");
+    background-repeat: no-repeat;
+  }
+  &__title--gar {
+    background-image: url("../images/blockinfo-3.svg");
+    background-repeat: no-repeat;
+  }
+  &__title--wash {
+    background-image: url("../images/services-1.svg");
+    background-repeat: no-repeat;
+  }
+
+  &__text {
+    font-family: "ReformaGroteskMediumC";
+    font-style: normal;
+    font-weight: 500;
+    font-size: calc(1.2em + 0.625vw); // font-size: 24px;
+    line-height: 120%;
+    letter-spacing: 0.03em;
+    color: #ffffff;
+    padding-bottom: 1.666666666666667em;
+  }
+  &__text:last-of-type:not(.blockinfo__text2) {
+    @media (max-width: 1344px) {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__text:last-of-type {
+    padding-bottom: 0;
+  }
+  &__squares {
+    justify-content: flex-start;
+  }
+  &__slider {
+    align-self: flex-start;
+    flex: 1;
+    max-width: 50%;
+    @media (max-width: 991.98px) {
+      max-width: 100%;
+    }
+  }
+
+  &__slider-item {
+  }
+
+  &__slider-img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    margin: 0 auto 40px;
+    max-width: 100%;
+  }
+
+  &__discr {
+    font-family: "ReformaGroteskDemiC";
+    font-style: normal;
+    font-weight: 600;
+    font-size: calc(0.9em + 0.46875vw); // font-size: 18px;
+    line-height: 140%;
+    text-align: center;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #ffffff;
+    width: 66.35220125786164%;
+    margin: 0 auto;
+    @media (max-width: 991.98px) {
+      width: 56.35220125786164%;
+    }
+    @media (max-width: 321.98px) {
+      width: 46.35220125786164%;
+    }
+  }
+
+  &__slick-prev,
+  &__slick-next {
+    position: absolute;
+    bottom: -10px;
+    z-index: 1;
+  }
+
+  &__slick-prev {
+    left: -2px;
+  }
+
+  &__slick-next {
+    right: -2px;
+  }
+}
+/*----------------Блок сервис------------------------------------------------------------*/
+.services {
+  &__title {
+    font-family: "ReformaGroteskDemiC";
+    font-style: normal;
+    font-weight: 600;
+    font-size: calc(2.6em + 1.3541667vw); //font-size: 52px;
+    line-height: 140%;
+    text-align: center;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #ffffff;
+    padding-bottom: 0.7692307692307692em;
+  }
+
+  &__slider {
+    padding-top: 215px;
+    margin-bottom: 180px;
+    @media (max-width: 1344px) {
+      padding-top: 175px;
+      margin-bottom: 140px;
+    }
+    @media (max-width: 991.98px) {
+      padding-top: 155px;
+      margin-bottom: 100px;
+    }
+    @media (max-width: 767.98px) {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__slider-item {
+    text-align: center;
+    border: 1px solid #898989;
+    margin: 0 12px;
+  }
+
+  &__slick-prev,
+  &__slick-next {
+    font-family: "ReformaGroteskDemiC";
+    font-style: normal;
+    font-weight: 600;
+    font-size: calc(2.4em + 0.4166667vw); //font-size: 32px;
+    line-height: 140%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #ffffff;
+    position: absolute;
+    top: 60px;
+    padding: 0.625em 0.825em;
+    transition: all 0.3s;
+  }
+
+  &__slick-prev:hover,
+  &__slick-next:hover {
+    background-color: #db3138;
+  }
+
+  &__slick-prev {
+    left: 32%;
+    @media (max-width: 1344px) {
+      left: 30%;
+    }
+    @media (max-width: 991.98px) {
+      left: 25%;
+    }
+    @media (max-width: 767.98px) {
+      left: 20%;
+    }
+    @media (max-width: 500.98px) {
+      left: 15%;
+    }
+    @media (max-width: 400.98px) {
+      left: 14px;
+    }
+  }
+  &__slick-next {
+    right: 32%;
+    @media (max-width: 1344px) {
+      right: 30%;
+    }
+    @media (max-width: 991.98px) {
+      right: 25%;
+    }
+    @media (max-width: 767.98px) {
+      right: 20%;
+    }
+    @media (max-width: 500.98px) {
+      right: 15%;
+    }
+    @media (max-width: 400.98px) {
+      right: 14px;
+    }
+  }
+
+  &__slider-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    margin: 80px 0 20px;
+    @media (max-width: 1344px) {
+      margin: 60px 0 20px;
+    }
+    @media (max-width: 991.98px) {
+      margin: 40px 0 15px;
+    }
+    @media (max-width: 767.98px) {
+      margin: 20px 0 15px;
+    }
+  }
+
+  &__slider-img {
+  }
+
+  &__slider-subtitle {
+    font-family: "ReformaGroteskDemiC";
+    font-style: normal;
+    font-weight: 600;
+    font-size: calc(1.2em + 0.625vw); //font-size: 24px;
+    line-height: 140%;
+    text-align: center;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #ffffff;
+    padding-bottom: 0.8333333333333333em;
+  }
+
+  &__slider-text {
+    font-family: "ReformaGroteskDemiC";
+    font-style: normal;
+    font-weight: 600;
+    font-size: calc(1.2em + 0.2083333vw); //font-size: 16px;
+    line-height: 140%;
+    text-align: center;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #ffffff;
+    padding-bottom: 1.5625em;
+    max-width: 226px;
+    margin: 0 auto;
+  }
+
+  &__slider-link {
+    font-family: "ReformaGroteskDemiC";
+    font-style: normal;
+    font-weight: 600;
+    font-size: calc(0.9em + 0.46875vw); //font-size: 18px;
+    line-height: 140%;
+    text-align: center;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 2.777777777777778em;
+    padding: 0.5555555555555556em 1.111111111111111em ;
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+  }
+
+  &__slider-link::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #db3138;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition-property: transform;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+  }
+
+  &__slider-link:hover::before {
+    transform: scaleX(1);
+  }
+}
+
+.blockinfosecond__discr {
+  width: 70%;
+  @media (max-width: 1344px) {
+    width: 60%;
+  }
+  @media (max-width: 991.98px) {
+    margin-top: 0;
+    width: 70%;
+  }
+  @media (max-width: 767.98px) {
+    width: 60%;
+  }
+  @media (max-width: 400.98px) {
+    width: 50%;
+  }
+}
+.blockinfo__slider2 {
+  margin-right: 35px;
+  @media (max-width: 767.98px) {
+    margin-right: 0;
+  }
+}
+.blockinfo__texts2 {
+  @media (max-width: 1344px) {
+  }
+  @media (max-width: 991.98px) {
+    margin-top: 70px;
+  }
+  @media (max-width: 767.98px) {
+    margin-top: 60px;
+  }
+}
+
+.blockinfo__squares2 {
+  justify-content: flex-start;
+}
+
+/*----------------Блок работы------------------------------------------------------------*/
+.works {
+  &__title {
+    font-family: "ReformaGroteskDemiC";
+    font-style: normal;
+    font-weight: 600;
+    font-size: calc(2.6em + 1.3541667vw); //font-size: 52px;
+    line-height: 140%;
+    text-align: center;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #ffffff;
+    padding-bottom: 0.7692307692307692em;
+  }
+}
+
+.photoblocks {
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+  margin-bottom: 73px;
+  margin-top: 60px;
+
+  &__link {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #db3138;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+  &__link:hover {
+    opacity: 0.2;
+  }
+  &__item {
+    position: relative;
+    flex: 0 0 320px;
+  }
+  &__img {
+  }
+}
+/*----------------Блок вопросы------------------------------------------------------------*/
+.question {
+  &__title {
+    font-family: "ReformaGroteskDemiC";
+    font-style: normal;
+    font-weight: 600;
+    font-size: calc(2.6em + 1.3541667vw); //font-size: 52px;
+    line-height: 140%;
+    text-align: center;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #ffffff;
+    padding-bottom: 0.7692307692307692em;
+  }
+
+  &__form {
+    width: 49.07407407407407%;
+    margin: 0 auto;
+    // display: flex;
+    // flex-flow: column;
+    margin-bottom: 100px;
+    margin-top: 60px;
+    @media (max-width: 1344px) {
+      width: 69.07407407407407%;
+    }
+    @media (max-width: 991.98px) {
+      width: 79.07407407407407%;
+    }
+    @media (max-width: 767.98px) {
+      width: 89.07407407407407%;
+    }
+  }
+
+  &__first {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+
+  &__name {
+    font-family: "ReformaGroteskDemiC";
+    font-style: normal;
+    font-weight: 600;
+    font-size: calc(1.2em + 0.2083333vw); //font-size: 16px;
+    line-height: 140%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: white;
+    background-color: transparent;
+    border: 1px solid #898989;
+
+    margin-right: auto;
+    padding: 0.9375em 1.5625em;
+    width: 48.11320754716981%;
+  }
+
+  &__tel {
+    font-family: "ReformaGroteskDemiC";
+    font-style: normal;
+    font-weight: 600;
+    font-size: calc(1.2em + 0.2083333vw); //font-size: 16px;
+    line-height: 140%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: white;
+    background-color: transparent;
+    border: 1px solid #898989;
+    padding: 0.9375em 1.5625em;
+    width: 48.11%;
+  }
+
+  &__second {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+
+  &__textarea {
+    font-family: "ReformaGroteskDemiC";
+    font-style: normal;
+    font-weight: 600;
+    font-size: calc(1.2em + 0.2083333vw); //font-size: 16px;
+    line-height: 140%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: white;
+    background-color: transparent;
+    resize: none;
+    border: 1px solid #898989;
+    padding: 0.9375em 1.5625em;
+    width: 82.54716981132075%;
+    @media (max-width: 767.98px) {
+      width: 72.54716981132075%;
+    }
+  }
+
+  &__social {
+    flex: 1;
+    display: flex;
+    flex-flow: column;
+    align-items: flex-end;
+  }
+
+  &__logo {
+    padding: 10px;
+    border: 1px solid #898989;
+  }
+
+  &__logo-link + &__logo-link {
+    margin-top: 15px;
+  }
+
+  &__logo {
+    transition: all 0.3s;
+  }
+
+  &__logo:hover {
+    background-color: #db3138;
+  }
+
+  &__third {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__btn {
+    flex: 1;
+  }
+
+  &__button {
+    font-family: "ReformaGroteskDemiC";
+    font-style: normal;
+    font-weight: 600;
+    font-size: calc(1.2em + 0.625vw); //font-size: 24px;
+    line-height: 140%;
+    text-align: center;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #ffffff;
+    padding: 0.9375em 1.5625em;
+    background-color: #141414;
+
+    display: inline-block;
+    vertical-align: middle;
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+  }
+  &__button::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #db3138;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition-property: transform;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
+  }
+
+  &__button:hover::before {
+    transform: scaleX(1);
+  }
+
+  &__info {
+    margin-left: 40px;
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  &__info-links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    @media (max-width: 565px) {
+      flex-flow: column;
+    }
+  }
+
+  &__info-tel {
+    white-space: nowrap;
+  }
+  &__info-mail {
+    margin-left: 5px;
+  }
+  &__address,
+  &__info-tel,
+  &__info-mail {
+    font-family: "ReformaGroteskDemiC";
+    font-style: normal;
+    font-weight: 600;
+    font-size: calc(1.2em + 0.2083333vw); //font-size: 16px;
+    line-height: 140%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #ffffff;
+    transition: all 0.3s;
+    position: relative;
+    display: inline-block;
+  }
+
+  &__info-tel:hover,
+  &__info-mail:hover {
+    color: #db3138;
+  }
+  &__info-tel-img {
+    display: inline;
+    padding-right: 5px;
+  }
+}
+.question__address::before {
+  content: url("../images/address.svg");
+  vertical-align: middle;
+}
+.question__info-tel::before {
+  content: url("../images/tel.svg");
+  vertical-align: middle;
+}
+.question__info-mail::before {
+  content: url("../images/mail.svg");
+  vertical-align: middle;
+}
+
+/*----------Footer------------------------------------------------------------------ */
+.footer {
+  border-top: 1px solid #898989;
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 77px;
+    padding-top: 30px;
+    @media (max-width: 1344px) {
+      padding-bottom: 67px;
+    }
+    @media (max-width: 991.98px) {
+      padding-bottom: 57px;
+    }
+    @media (max-width: 767.98px) {
+      padding-bottom: 47px;
+    }
+  }
+  &__text {
+    font-family: "ReformaGroteskDemiC";
+    font-style: normal;
+    font-weight: 600;
+    font-size: calc(1.2em + 0.2083333vw); //font-size: 16px;
+    line-height: 140%;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #ffffff;
+    opacity: 0.5;
+    @media (max-width: 1344px) {
+      flex: 1;
+    }
+    @media (max-width: 991.98px) {
+    }
+    @media (max-width: 767.98px) {
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: flex-end;
+    @media (max-width: 1344px) {
+      flex: 2;
+    }
+    @media (max-width: 991.98px) {
+    }
+    @media (max-width: 767.98px) {
+      flex: 1;
+      flex-flow: column;
+      align-items: flex-end;
+    }
+  }
+
+  &__item + &__item {
+    margin-left: 40px;
+    @media (max-width: 1344px) {
+      margin-left: 30px;
+    }
+    @media (max-width: 991.98px) {
+      margin-left: 20px;
+    }
+    @media (max-width: 767.98px) {
+      margin-top: 10px;
+    }
+  }
+
+  &__link {
+    display: block;
+    font-family: "ReformaGroteskMediumC";
+    font-style: normal;
+    font-weight: 500;
+    font-size: calc(1.6em + 0.633333vw); //font-size: 32px;
+    line-height: 120%;
+    text-align: center;
+    letter-spacing: 0.03em;
+    color: #ffffff;
+    transition: color 0.3s;
+  }
+
+  &__link:hover {
+    color: #db3138;
+  }
+}
+
+@import "media"; /* Медиа запросы*/
+
+
+
